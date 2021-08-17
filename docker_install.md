@@ -1,11 +1,11 @@
 # Install Docker Engine on Ubuntu
 
 ## Uninstall old versions
-``` sh
+``` shell
 sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
 ## Set up the repository
-``` sh
+``` shell
 sudo apt-get update
 ```
 
