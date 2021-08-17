@@ -2,7 +2,7 @@
 
 ## Uninstall old versions
 ``` sh
-sudo apt-get update
+sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
 ## Set up the repository
 ``` sh
