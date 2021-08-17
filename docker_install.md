@@ -1,15 +1,15 @@
 # Install Docker Engine on Ubuntu
 
 ## Uninstall old versions
-``` shell
+```shell
 sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
 ## Set up the repository
-``` shell
+```shell
 sudo apt-get update
 ```
 
-``` sh
+```sh
 sudo apt-get install \
     apt-transport-https \
     ca-certificates \
