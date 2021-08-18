@@ -10,6 +10,10 @@ docker pull jenkins/jenkins:lts-jdk11
 ``` sh
 docker run -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 --name=jenkins jenkins/jenkins:lts-jdk11
 ```
+``` sh
+docker run -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 --name=jenkins jenkins/jenkins:jdk11
+```
+docker pull 
 
 ### New Portainer installation
 
