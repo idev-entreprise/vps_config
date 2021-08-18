@@ -5,6 +5,20 @@
 ``` sh
 docker run -d --name container_mysql -v /my/custom:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=passrootdocker mysql:8
 ```
+``` sh
+mysql -u root -p
+```
+``` sh
+passrootdocker
+```
+
+``` sql
+show databases;
+```
+``` sql
+CREATE DATABASE codfab;
+```
+
 
 
 
