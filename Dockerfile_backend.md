@@ -22,12 +22,15 @@ ENTRYPOINT ["java","-jar","/app/app.jar"]
 # or ENTRYPOINT ["java","-jar","app.jar"]
 ```
 
-# mysql -uroot -proot
-# show databases;
-# use dbclient ;
-# select * from clients;
-
-# docker network create app-network
+``` sql
+mysql -uroot -proot
+show databases;
+use dbclient ;
+select * from clients;
+```
+``` docker
+docker network create app-network
+```
 # docker container run --network app-network --name mysql-container -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=dbclient -d mysql:8
 # docker build -t frontend:1.0 .
 # docker build -t backend:1.0 .
