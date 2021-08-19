@@ -28,27 +28,34 @@ docker network create network_kcafi
 ```
 
 ### MYSQL 
+
+``` sh
+docker run -d --name container_mysql --network network_kcafi  -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=dbclient -d mysql:8
+```
+
 ``` sql
 mysql -uroot -proot
 show databases;
 use dbclient ;
 select * from clients;
 ```
-``` sh
-docker run -d --name container_mysql --network network_kcafi  -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=dbclient -d mysql:8
-```
+### Phpmyadmin 
 ``` sh
 docker run -d --name container_phpmyadmin --network network_kcafi --link container_mysql:db -p 7000:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin
 ``` 
-``` sh
-docker build -t frontend:1.0 .
-```
+
+### Backend
 ``` sh
 docker build -t backend:1.0 .
 ```
 ``` sh
-docker run -d --network network_kcafi --name container_frontend -p 4200:80 frontend:1.0
-```
-``` sh
 docker run -d --network network_kcafi --name container_backend -p 8080:8080 backend:1.0
 ```
+### Frontend
+``` sh
+docker build -t frontend:1.0 .
+```
+``` sh
+docker run -d --network network_kcafi --name container_frontend -p 4200:80 frontend:1.0
+```
+
