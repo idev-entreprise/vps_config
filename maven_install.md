@@ -15,5 +15,5 @@ mvn -version
 ```
 # Installing Apache Maven on Docker
 ``` sh
-docker run -d -it --rm --name container_maven -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-8
+docker run -d -it --rm --name container_maven -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-8 mvn -v
 ```
