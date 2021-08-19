@@ -58,4 +58,5 @@ docker build -t frontend:1.0 .
 ``` sh
 docker run -d --network network_kcafi --name container_frontend -p 4200:80 frontend:1.0
 ```
-
+- [ ] Case non cochée
+- [x] Case cochée
