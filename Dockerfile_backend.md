@@ -22,6 +22,12 @@ ENTRYPOINT ["java","-jar","/app/app.jar"]
 # or ENTRYPOINT ["java","-jar","app.jar"]
 ```
 
+### Create network  {network_kcafi}
+``` sh
+docker network create network_kcafi
+```
+
+### MYSQL 
 ``` sql
 mysql -uroot -proot
 show databases;
@@ -29,11 +35,11 @@ use dbclient ;
 select * from clients;
 ```
 ``` sh
-docker network create app-network
+docker run -d --name container_mysql --network network_kcafi  -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=dbclient -d mysql:8
 ```
 ``` sh
-docker container run --network app-network --name mysql-container -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=dbclient -d mysql:8
-```
+docker run -d --name container_phpmyadmin --network network_kcafi --link container_mysql:db -p 7000:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin
+``` 
 ``` sh
 docker build -t frontend:1.0 .
 ```
@@ -41,8 +47,8 @@ docker build -t frontend:1.0 .
 docker build -t backend:1.0 .
 ```
 ``` sh
-docker container run --network app-network --name frontend-container -p 4200:80 -d frontend:1.0
+docker run -d --network network_kcafi --name container_frontend -p 4200:80 frontend:1.0
 ```
 ``` sh
-docker container run --network app-network --name backend-container -p 8080:8080 -d backend:1.0
+docker run -d --network network_kcafi --name container_backend -p 8080:8080 backend:1.0
 ```
