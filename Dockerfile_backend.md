@@ -38,11 +38,11 @@ docker container run --network app-network --name mysql-container -e MYSQL_ROOT_
 docker build -t frontend:1.0 .
 ```
 ``` sh
-# docker build -t backend:1.0 .
+docker build -t backend:1.0 .
 ```
 ``` sh
-# docker container run --network app-network --name frontend-container -p 4200:80 -d frontend:1.0
+docker container run --network app-network --name frontend-container -p 4200:80 -d frontend:1.0
 ```
 ``` sh
-# docker container run --network app-network --name backend-container -p 8080:8080 -d backend:1.0
+docker container run --network app-network --name backend-container -p 8080:8080 -d backend:1.0
 ```
