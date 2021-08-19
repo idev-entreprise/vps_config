@@ -22,7 +22,7 @@ ENTRYPOINT ["java","-jar","/app/app.jar"]
 # or ENTRYPOINT ["java","-jar","app.jar"]
 ```
 
-### Create network  {network_kcafi}
+### Create network  `network_kcafi`
 ``` sh
 docker network create network_kcafi
 ```
@@ -58,5 +58,4 @@ docker build -t frontend:1.0 .
 ``` sh
 docker run -d --network network_kcafi --name container_frontend -p 4200:80 frontend:1.0
 ```
-- [ ] Case non cochée
-- [x] Case cochée
+
