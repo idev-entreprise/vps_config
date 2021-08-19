@@ -14,5 +14,6 @@ sudo apt install maven
 mvn -version
 ```
 # Installing Apache Maven on Docker
-
+``` sh
 docker run -d -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-8
+```
