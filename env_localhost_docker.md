@@ -55,7 +55,7 @@ docker run -d --name cnt_localhost_phpmyadmin --network network_kcafi_localhost 
 docker build -t kcafib:1.0 .
 ```
 ``` sh
-docker run -d --name cnt_localhost_kcafib --network network_kcafi_localhost  -p 10581:3200 kcafib:1.0
+docker run -d --name cnt_localhost_kcafib --network network_kcafi_localhost  -p 10581:9090 kcafib:1.0
 ```
 **URL :** [kcafib](http://localhost:10581/swagger-ui.html).
 ``` sh
