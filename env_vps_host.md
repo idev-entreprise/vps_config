@@ -1,7 +1,7 @@
-|IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER |
-|---- | ----- | ----- | ---- | ---- |
-|jenkins/jenkins:jdk11	|cnt_jenkins|	C-JNKS|	8080	|8080 |
-|portainer/portainer-ce:latest|	cnt_portainer	|C-PORT	|9000	|9000|
+|IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER | URL |
+|---- | ----- | ----- | ---- | ---- |---- |
+|jenkins/jenkins:jdk11	|cnt_jenkins|	C-JNKS|	8080	|8080 | [jenkins](http://62.141.41.189:8080) |
+|portainer/portainer-ce:latest|	cnt_portainer	|C-PORT	|9000	|9000|[Portainer](http://62.141.41.189:9000/#!/auth) |
 
 ### 1. Jenkins Container
 ``` sh
