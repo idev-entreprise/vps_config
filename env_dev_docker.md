@@ -54,8 +54,8 @@ docker run -d --name cnt_localhost_phpmyadmin --network network_kcafi_localhost 
 ### - dev
 
 ``` sh
-docker build --build-arg profile=dev-docker -t kcafib_dev:1.0 . ;
-docker run -d --name cnt_localhost_kcafib -e profile=dev-docker  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0 
+docker build --build-arg PROFILE=dev-docker -t kcafib_dev:1.0 . 
+docker run -d --name cnt_localhost_kcafib -e PROFILE=dev-docker  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0 
 ```
 ``` sh
 docker run -d --name cnt_localhost_kcafib -e profile=dev-docker  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0
