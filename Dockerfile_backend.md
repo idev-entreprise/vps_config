@@ -49,7 +49,7 @@ docker run -d --name container_phpmyadmin --network network_kcafi --link contain
 docker build -t backend:1.0 .
 ```
 ``` sh
-docker run -d --network network_kcafi --name container_backend -p 8080:8080 backend:1.0
+docker run -d --network network_kcafi --name container_backend -p 8080:3200 backend:1.0
 ```
 ### Frontend
 ``` sh
