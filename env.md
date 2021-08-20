@@ -1,3 +1,7 @@
+---
+# ENV `dev-docker`
+---
+
 |IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER | URL |
 |---- | ----- | ----- | ---- | ---- | ---- |
 |portainer/portainer-ce:latest|	cnt_portainer	|C-PORT	|9000	|9000| [Portainer](http://localhost:9000/#!/auth) |
@@ -6,16 +10,6 @@
 |kcafib|cnt_localhost_kcafib|C-CPKB	|	10581	|8080 | [kcafib](http://localhost:10581/swagger-ui.html) |
 |kcafif|cnt_localhost_kcafif|C-CPKF	| 80	|80| [kcafif](http://localhost) |
 
-|IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER | URL |
-|---- | ----- | ----- | ---- | ---- | ---- |
-|mysql:8|cnt_prod_mysql8|C-CPM	| 13301	|3306| |
-|phpmyadmin:latest|cnt_prod_phpmyadmin|C-CPP	| 17001	|80|[Phpmyadmin](http://62.141.41.189:17001) |
-|kcafib|cnt_prod_kcafib|C-CPKB	|	10581	|8080 | [kcafib](http://62.141.41.189:10581/swagger-ui.html) |
-|kcafif|cnt_prod_kcafif|C-CPKF	| 80	|80|[kcafif](http://62.141.41.189) |
-
----
-# ENV dev-docker
----
 ### 1. Docker network 
 ``` sh
  docker network create network_kcafi_localhost
@@ -67,6 +61,12 @@ docker run -d --name cnt_prod_kcafib -e PROFILE=serv-test --network network_kcaf
 # `ENV serv-prod`
 ---
 
+|IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER | URL |
+|---- | ----- | ----- | ---- | ---- | ---- |
+|mysql:8|cnt_prod_mysql8|C-CPM	| 13301	|3306| |
+|phpmyadmin:latest|cnt_prod_phpmyadmin|C-CPP	| 17001	|80|[Phpmyadmin](http://62.141.41.189:17001) |
+|kcafib|cnt_prod_kcafib|C-CPKB	|	10581	|8080 | [kcafib](http://62.141.41.189:10581/swagger-ui.html) |
+|kcafif|cnt_prod_kcafif|C-CPKF	| 80	|80|[kcafif](http://62.141.41.189) |
 
 ### 1. Docker network 
 ``` sh
