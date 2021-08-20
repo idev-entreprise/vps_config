@@ -38,7 +38,7 @@ docker run -d --name cnt_localhost_phpmyadmin --network network_kcafi_localhost 
 docker build --build-arg PROFILE=dev-docker -t kcafib_dev:1.0 . 
 docker run -d --name cnt_localhost_kcafib -e PROFILE=dev-docker  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0 
 ```
-#### - [kcafib test](http://http://62.141.41.189:10582/swagger-ui.html)
+#### - [kcafib test](http://62.141.41.189:10582/swagger-ui.html)
 ``` sh
 docker build --build-arg PROFILE=serv-test -t kcafib_test:1.0 . 
 docker tag kcafib_test:1.0 98687465/kcafib_test:1.0
@@ -47,7 +47,7 @@ docker push 98687465/kcafib_test:1.0
 ``` sh
 docker run -d --name cnt_test_kcafib -e PROFILE=serv-test --network network_kcafi_test  -p 10581:9090 98687465/kcafib_test:1.0
 ```
-#### - [kcafib prod](http://http://62.141.41.189:10581/swagger-ui.html)
+#### - [kcafib prod](http://62.141.41.189:10581/swagger-ui.html)
 
 ``` sh
 docker build --build-arg PROFILE=serv-prod -t kcafib_prod:1.0 . 
@@ -107,7 +107,7 @@ docker run -d --name cnt_prod_mysql8 --network network_kcafi_prod -v /my/custom:
 docker run -d --name cnt_prod_phpmyadmin --network network_kcafi_prod --link cnt_prod_mysql8:db -p 17001:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin
 ``` 
 
-### 4. [kcafib prod](http://http://62.141.41.189:10581/swagger-ui.html)
+### 4. [kcafib prod](http://62.141.41.189:10581/swagger-ui.html)
 ``` sh
 docker build --build-arg PROFILE=serv-prod -t kcafib_prod:1.0 . 
 docker tag kcafib_prod:1.0 98687465/kcafib_prod:1.0
@@ -143,7 +143,7 @@ docker run -d --name cnt_test_mysql8 --network network_kcafi_test -v /my/custom:
 docker run -d --name cnt_test_phpmyadmin --network network_kcafi_test --link cnt_test_mysql8:db -p 17002:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin
 ``` 
 
-### 4. [kcafib test](http://http://62.141.41.189:10582/swagger-ui.html)
+### 4. [kcafib test](http://62.141.41.189:10582/swagger-ui.html)
 ``` sh
 docker build --build-arg PROFILE=serv-test -t kcafib_test:1.0 . 
 docker tag kcafib_test:1.0 98687465/kcafib_test:1.0
