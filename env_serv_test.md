@@ -36,5 +36,5 @@ docker tag kcafib_test:1.0 98687465/kcafib_test:1.0
 docker push 98687465/kcafib_test:1.0
 ```
 ``` sh
-docker run -d --name cnt_test_kcafib --network network_kcafi_test  -p 10581:9090 98687465/kcafib_test:1.0
+docker run -d --name cnt_test_kcafib --network network_kcafi_test  -p 10582:9090 98687465/kcafib_test:1.0
 ```
