@@ -70,6 +70,10 @@ docker tag kcafib_test:1.0 98687465/kcafib_test:1.0
 ``` sh
 docker push 98687465/kcafib_test:1.0
 ```
+``` sh
+docker run -d --name cnt_prod_kcafib --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_test:1.0
+```
+**URL :** [kcafib](http://http://62.141.41.189:10582/swagger-ui.html).
 
 
 ### - prod
