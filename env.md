@@ -64,13 +64,13 @@ docker push 98687465/kcafib_prod:1.0
 docker run -d --name cnt_prod_kcafib -e PROFILE=serv-test --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_test:1.0
 ```
 ---
-# ENV serv-prod
+# `ENV serv-prod`
 ---
 
 
 ### 1. Docker network 
 ``` sh
- docker network create `network_kcafi_prod`
+ docker network create network_kcafi_prod
 ```
  
 ### 2. Mysql
