@@ -1,9 +1,10 @@
-|IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER |
-|---- | ----- | ----- | ---- | ---- |
-|mysql:8|cnt_prod_mysql8|C-CPM	| 13301	|3306|
-|phpmyadmin:latest|cnt_prod_phpmyadmin|C-CPP	| 17001	|80|
-|kcafib|cnt_prod_kcafib|C-CPKB	|	10581	|8080 |
-|kcafif|cnt_prod_kcafif|C-CPKF	| 80	|80|
+|IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER | URL |
+|---- | ----- | ----- | ---- | ---- | ---- |
+|mysql:8|cnt_prod_mysql8|C-CPM	| 13301	|3306| |
+|phpmyadmin:latest|cnt_prod_phpmyadmin|C-CPP	| 17001	|80|[Phpmyadmin](http://62.141.41.189:17001) |
+|kcafib|cnt_prod_kcafib|C-CPKB	|	10581	|8080 | [kcafib](http://62.141.41.189:10581/swagger-ui.html) |
+|kcafif|cnt_prod_kcafif|C-CPKF	| 80	|80|[kcafif](http://62.141.41.189) |
+
 
 ### Docker network 
 ``` sh
@@ -27,15 +28,15 @@ docker run -d --name cnt_prod_phpmyadmin --network network_kcafi_prod --link cnt
 
 ### 3. kcafib
 ``` sh
-docker run -d --name cnt_prod_kcafib --network network_kcafi_prod  -p 10581:3200 98687465/kcafib:1.0
-```
-
-``` sh
-docker build -t backend:1.0 .
+docker build -t kcafib_prod:1.0 .
 ```
 ``` sh
-docker tag backend:1.0 98687465/kcafi
+docker tag kcafib_prod:1.0 98687465/kcafib_prod:1.0
 ```
 ``` sh
-docker push 98687465/kcafi
+docker push 98687465/kcafib_prod:1.0
+```
+[Docker hub ](https://hub.docker.com/)
+``` sh
+docker run -d --name cnt_prod_kcafib --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_prod:1.0
 ```
