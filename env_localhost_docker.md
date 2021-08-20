@@ -9,6 +9,10 @@ docker volume create portainer_data
 ```sh
 docker run -d -p 8000:8000 -p 9000:9000 --name=cnt_portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 ```
+
+
+**URL :** [Portainer](http://localhost:9000/#!/auth).
+
 - **Username** : admin
 - **Password** : Portainer.1.2.3.4.5.6.7.8.9
 
@@ -44,6 +48,8 @@ select * from clients;
 docker run -d --name cnt_prod_phpmyadmin --network network_kcafi_localhost --link cnt_prod_mysql8:db -p 17001:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin
 ``` 
 
+**URL :** [Phpmyadmin](http://localhost:17001).
+
 ### 3. kcafib
 
 ``` sh
@@ -52,6 +58,7 @@ docker build -t kcafib:1.0 .
 ``` sh
 docker run -d --name cnt_localhost_kcafib --network network_kcafi_localhost  -p 10581:3200 98687465/kcafib:1.0
 ```
+**URL :** [kcafib](http://localhost:10581/swagger-ui.html).
 ``` sh
 docker tag kcafib:1.0 98687465/kcafib:1.0
 ```
