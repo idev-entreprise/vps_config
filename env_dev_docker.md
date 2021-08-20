@@ -52,18 +52,13 @@ docker run -d --name cnt_localhost_phpmyadmin --network network_kcafi_localhost 
 ### 3. kcafib
 
 ### - dev
-``` sh
-docker build -t kcafib_dev:1.0 .
-```
-``` sh
-docker build --build-arg profile=dev-docker -t kcafib_dev:1.0 .
-```
-``` sh
-docker build -f Dockerfile_dev -t kcafib_dev:1.0 .
-```
 
 ``` sh
-docker run -d -t -i  --name cnt_localhost_kcafib -e SPRING_PROFILES_ACTIVE=dev-docker  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0
+docker build --build-arg profile=dev-docker -t kcafib_dev:1.0 . ;
+docker run -d --name cnt_localhost_kcafib -e profile=dev-docker  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0 
+```
+``` sh
+docker run -d --name cnt_localhost_kcafib -e profile=dev-docker  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0
 ```
 
 **URL :** [kcafib](http://localhost:10581/swagger-ui.html).
