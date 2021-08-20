@@ -51,6 +51,14 @@ docker build -t backend:1.0 .
 ``` sh
 docker run -d --network network_kcafi --name container_backend -p 8080:3200 backend:1.0
 ```
+
+``` sh
+docker tag backend:1.0 98687465/kcafi
+```
+``` sh
+docker push 98687465/kcafi
+```
+
 ### Frontend
 ``` sh
 docker build -t frontend:1.0 .
