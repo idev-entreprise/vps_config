@@ -1,5 +1,21 @@
 |IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER |
 |---- | ----- | ----- | ---- | ---- |
+|portainer/portainer-ce:latest|	cnt_portainer	|C-PORT	|9000	|9000|
+
+### 1. Portainer Container
+``` sh
+docker volume create portainer_data
+```
+```sh
+docker run -d -p 8000:8000 -p 9000:9000 --name=cnt_portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+```
+- **Username** : admin
+- **Password** : Portainer.1.2.3.4.5.6.7.8.9
+
+---
+
+|IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER |
+|---- | ----- | ----- | ---- | ---- |
 |mysql:8|cnt_portainer|C-PORT	| 9000	|9000|
 |mysql:8|cnt_localhost_mysql8|C-CPM	| 13301	|3306|
 |phpmyadmin:latest|cnt_localhost_phpmyadmin|C-CPP	| 17001	|80|
