@@ -57,13 +57,18 @@ docker run -d --name cnt_localhost_phpmyadmin --network network_kcafi_localhost 
 docker build --build-arg PROFILE=dev-docker -t kcafib_dev:1.0 . 
 docker run -d --name cnt_localhost_kcafib -e PROFILE=dev-docker  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0 
 ```
-``` sh
-docker run -d --name cnt_localhost_kcafib -e profile=dev-docker  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0
-```
-
 **URL :** [kcafib](http://localhost:10581/swagger-ui.html).
 
 ### - test
+
+``` sh
+docker build --build-arg PROFILE=serv-test -t kcafib_test:1.0 . 
+docker tag kcafib_test:1.0 98687465/kcafib_test:1.0
+docker push 98687465/kcafib_test:1.0
+docker run -d --name cnt_prod_kcafib -e PROFILE=serv-test --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_test:1.0
+```
+**URL :** [kcafib](http://http://62.141.41.189:10582/swagger-ui.html).
+
 ``` sh
 docker build -t kcafib_test:1.0 .
 ```
@@ -76,7 +81,7 @@ docker push 98687465/kcafib_test:1.0
 ``` sh
 docker run -d --name cnt_prod_kcafib --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_test:1.0
 ```
-**URL :** [kcafib](http://http://62.141.41.189:10582/swagger-ui.html).
+
 
 
 ### - prod
