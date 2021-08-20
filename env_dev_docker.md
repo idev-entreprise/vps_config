@@ -1,6 +1,6 @@
-|IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER |
-|---- | ----- | ----- | ---- | ---- |
-|portainer/portainer-ce:latest|	cnt_portainer	|C-PORT	|9000	|9000|
+|IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER | URL |
+|---- | ----- | ----- | ---- | ---- | ---- |
+|portainer/portainer-ce:latest|	cnt_portainer	|C-PORT	|9000	|9000| [Portainer](http://localhost:9000/#!/auth) |
 
 ### 1. Portainer Container
 ``` sh
@@ -18,12 +18,12 @@ docker run -d -p 8000:8000 -p 9000:9000 --name=cnt_portainer --restart=always -v
 
 ---
 
-|IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER |
-|---- | ----- | ----- | ---- | ---- |
-|mysql:8|cnt_localhost_mysql8|C-CPM	| 13301	|3306|
-|phpmyadmin:latest|cnt_localhost_phpmyadmin|C-CPP	| 17001	|80|
-|kcafib|cnt_prod_kcafib|C-CPKB	|	10581	|8080 |
-|kcafif|cnt_prod_kcafif|C-CPKF	| 80	|80|
+|IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER | URL |
+|---- | ----- | ----- | ---- | ---- | ---- |
+|mysql:8|cnt_localhost_mysql8|C-CPM	| 13301	|3306|  |
+|phpmyadmin:latest|cnt_localhost_phpmyadmin|C-CPP	| 17001	|80| [Phpmyadmin](http://localhost:17001) |
+|kcafib|cnt_prod_kcafib|C-CPKB	|	10581	|8080 | [kcafib](http://localhost:10581/swagger-ui.html) |
+|kcafif|cnt_prod_kcafif|C-CPKF	| 80	|80| [kcafif](http://localhost) |
 
 
 
