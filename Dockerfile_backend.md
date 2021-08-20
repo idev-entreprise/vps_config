@@ -30,7 +30,13 @@ docker network create network_kcafi
 ### MYSQL 
 
 ``` sh
-docker run -d --name container_mysql --network network_kcafi  -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=dbclient -d mysql:8
+docker run  -d \
+            --name container_mysql \
+            --network network_kcafi  \
+            -e MYSQL_ROOT_PASSWORD=root \
+            -e MYSQL_DATABASE=dbclient \
+            -p 3307:3306 \
+            mysql:8
 ```
 
 ``` sql
@@ -58,4 +64,6 @@ docker build -t frontend:1.0 .
 ``` sh
 docker run -d --network network_kcafi --name container_frontend -p 4200:80 frontend:1.0
 ```
+
+
 
