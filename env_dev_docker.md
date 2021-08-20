@@ -51,7 +51,7 @@ docker run -d --name cnt_localhost_phpmyadmin --network network_kcafi_localhost 
 
 ### 3. kcafib
 
-### dev
+### - dev
 ``` sh
 docker build -t kcafib_dev:1.0 .
 ```
@@ -60,7 +60,7 @@ docker run -d --name cnt_localhost_kcafib --network network_kcafi_localhost  -p 
 ```
 **URL :** [kcafib](http://localhost:10581/swagger-ui.html).
 
-### test
+### - test
 ``` sh
 docker build -t kcafib_test:1.0 .
 ```
@@ -72,7 +72,7 @@ docker push 98687465/kcafib_test:1.0
 ```
 
 
-### prod
+### - prod
 ``` sh
 docker build -t kcafib_prod:1.0 .
 ```
