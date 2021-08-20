@@ -59,6 +59,11 @@ docker build -t kcafib_dev:1.0 .
 docker build --build-arg profile=dev-docker -t kcafib_dev:1.0 .
 ```
 ``` sh
+docker build -f Dockerfile_dev -t kcafib_dev:1.0 .
+```
+
+
+``` sh
 docker run -d --name cnt_localhost_kcafib "SPRING_PROFILES_ACTIVE=dev-docker"  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0
 ```
 
