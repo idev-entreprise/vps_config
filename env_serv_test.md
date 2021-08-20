@@ -5,14 +5,6 @@
 |kcafib|cnt_test_kcafib|C-CPKB	|	10582	|9090 | [kcafib](http://62.141.41.189:10582/swagger-ui.html) |
 |kcafif|cnt_test_kcafif|C-CPKF	| 80	|80| [kcafif](http://localhost) |
 
-
-|IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER | URL |
-|---- | ----- | ----- | ---- | ---- | ---- |
-|mysql:8|cnt_localhost_mysql8|C-CPM	| 13301	|3306|  |
-|phpmyadmin:latest|cnt_localhost_phpmyadmin|C-CPP	| 17001	|80| [Phpmyadmin](http://localhost:17001) |
-|kcafib|cnt_localhost_kcafib|C-CPKB	|	10581	|8080 | [kcafib](http://localhost:10581/swagger-ui.html) |
-|kcafif|cnt_localhost_kcafif|C-CPKF	| 80	|80| [kcafif](http://localhost) |
-
 ### Docker network 
 ``` sh
  docker network create network_kcafi_test
