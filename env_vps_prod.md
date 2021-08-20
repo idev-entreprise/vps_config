@@ -27,7 +27,7 @@ docker run -d --name cnt_prod_phpmyadmin --network network_kcafi_prod --link cnt
 
 ### 3. kcafib
 ``` sh
-docker run -d --network network_kcafi_prod --name cnt_prod_kcafib -p 10581:3200 98687465/kcafib:1.0
+docker run -d --name cnt_prod_kcafib --network network_kcafi_prod  -p 10581:3200 98687465/kcafib:1.0
 ```
 
 ``` sh
