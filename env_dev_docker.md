@@ -64,7 +64,7 @@ docker run -d --name cnt_test_kcafib -e PROFILE=serv-test --network network_kcaf
 ```
 
 
-### - prod  [kcafib prod](http://http://62.141.41.189:10581/swagger-ui.html)
+### - [kcafib prod](http://http://62.141.41.189:10581/swagger-ui.html)
 
 ``` sh
 docker build --build-arg PROFILE=serv-prod -t kcafib_prod:1.0 . 
