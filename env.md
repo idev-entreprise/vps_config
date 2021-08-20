@@ -6,6 +6,13 @@
 |kcafib|cnt_localhost_kcafib|C-CPKB	|	10581	|8080 | [kcafib](http://localhost:10581/swagger-ui.html) |
 |kcafif|cnt_localhost_kcafif|C-CPKF	| 80	|80| [kcafif](http://localhost) |
 
+|IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER | URL |
+|---- | ----- | ----- | ---- | ---- | ---- |
+|mysql:8|cnt_prod_mysql8|C-CPM	| 13301	|3306| |
+|phpmyadmin:latest|cnt_prod_phpmyadmin|C-CPP	| 17001	|80|[Phpmyadmin](http://62.141.41.189:17001) |
+|kcafib|cnt_prod_kcafib|C-CPKB	|	10581	|8080 | [kcafib](http://62.141.41.189:10581/swagger-ui.html) |
+|kcafif|cnt_prod_kcafif|C-CPKF	| 80	|80|[kcafif](http://62.141.41.189) |
+
 ---
 # ENV dev-docker
 ---
@@ -56,6 +63,35 @@ docker push 98687465/kcafib_prod:1.0
 ``` sh
 docker run -d --name cnt_prod_kcafib -e PROFILE=serv-test --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_test:1.0
 ```
+---
+# ENV serv-prod
+---
 
+
+### 1. Docker network 
+``` sh
+ docker network create network_kcafi_prod
+```
+ 
+### 2. Mysql
+``` sh
+docker run -d --name cnt_prod_mysql8 --network network_kcafi_prod -v /my/custom:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=passrootdocker -e MYSQL_DATABASE=dbclient -p 13301:3306  mysql:8
+``` 
+### 3. Phpmyadmin 
+``` sh
+docker run -d --name cnt_prod_phpmyadmin --network network_kcafi_prod --link cnt_prod_mysql8:db -p 17001:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin
+``` 
+
+### 4. kcafib
+#### - [kcafib prod](http://http://62.141.41.189:10581/swagger-ui.html)
+
+``` sh
+docker build --build-arg PROFILE=serv-prod -t kcafib_prod:1.0 . 
+docker tag kcafib_prod:1.0 98687465/kcafib_prod:1.0
+docker push 98687465/kcafib_prod:1.0
+```
+``` sh
+docker run -d --name cnt_prod_kcafib -e PROFILE=serv-test --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_test:1.0
+```
 
 
