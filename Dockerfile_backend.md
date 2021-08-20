@@ -30,12 +30,12 @@ docker network create network_kcafi
 ### MYSQL 
 
 ``` sh
-docker run  -d \
-            --name container_mysql \
-            --network network_kcafi  \
-            -e MYSQL_ROOT_PASSWORD=root \
-            -e MYSQL_DATABASE=dbclient \
-            -p 3307:3306 \
+docker run  -d 
+            --name container_mysql 
+            --network network_kcafi  
+            -e MYSQL_ROOT_PASSWORD=root 
+            -e MYSQL_DATABASE=dbclient 
+            -p 3307:3306
             mysql:8
 ```
 
