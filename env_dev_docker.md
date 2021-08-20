@@ -64,7 +64,7 @@ docker build -f Dockerfile_dev -t kcafib_dev:1.0 .
 
 
 ``` sh
-docker run -d --name cnt_localhost_kcafib "SPRING_PROFILES_ACTIVE=dev-docker"  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0
+docker run -d --name cnt_localhost_kcafib SPRING_PROFILES_ACTIVE='dev-docker'  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0
 ```
 
 **URL :** [kcafib](http://localhost:10581/swagger-ui.html).
