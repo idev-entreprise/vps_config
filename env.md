@@ -58,6 +58,31 @@ docker push 98687465/kcafib_prod:1.0
 docker run -d --name cnt_prod_kcafib -e PROFILE=serv-test --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_test:1.0
 ```
 ---
+# `ENV serv`
+---
+
+|IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER | URL |
+|---- | ----- | ----- | ---- | ---- |---- |
+|jenkins/jenkins:jdk11	|cnt_jenkins|	C-JNKS|	8080	|8080 | [jenkins](http://62.141.41.189:8080) |
+|portainer/portainer-ce:latest|	cnt_portainer	|C-PORT	|9000	|9000|[Portainer](http://62.141.41.189:9000/#!/auth) |
+
+### 1. [Jenkins Container](http://62.141.41.189:8080) 
+``` sh
+docker run -d -p 8080:8080 -p 50000:50000 --name=cnt_jenkins -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk11
+```
+- **Username** : admin
+- **Password** : Jenkins.1.2.3.4.5.6.7.8.9
+
+### 2. [Portainer Container](http://62.141.41.189:9000/#!/auth)
+``` sh
+docker volume create portainer_data
+docker run -d -p 8000:8000 -p 9000:9000 --name=cnt_portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+```
+- **Username** : admin
+- **Password** : Portainer.1.2.3.4.5.6.7.8.9
+
+
+---
 # `ENV serv-prod`
 ---
 
