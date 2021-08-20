@@ -65,35 +65,22 @@ docker run -d --name cnt_localhost_kcafib -e PROFILE=dev-docker  --network netwo
 docker build --build-arg PROFILE=serv-test -t kcafib_test:1.0 . 
 docker tag kcafib_test:1.0 98687465/kcafib_test:1.0
 docker push 98687465/kcafib_test:1.0
-docker run -d --name cnt_prod_kcafib -e PROFILE=serv-test --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_test:1.0
+```
+``` sh
+docker run -d --name cnt_test_kcafib -e PROFILE=serv-test --network network_kcafi_test  -p 10581:9090 98687465/kcafib_test:1.0
 ```
 **URL :** [kcafib](http://http://62.141.41.189:10582/swagger-ui.html).
 
-``` sh
-docker build -t kcafib_test:1.0 .
-```
-``` sh
-docker tag kcafib_test:1.0 98687465/kcafib_test:1.0
-```
-``` sh
-docker push 98687465/kcafib_test:1.0
-```
-``` sh
-docker run -d --name cnt_prod_kcafib --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_test:1.0
-```
-
-
-
 ### - prod
+
 ``` sh
-docker build -t kcafib_prod:1.0 .
-```
-``` sh
+docker build --build-arg PROFILE=serv-prod -t kcafib_prod:1.0 . 
 docker tag kcafib_prod:1.0 98687465/kcafib_prod:1.0
-```
-``` sh
 docker push 98687465/kcafib_prod:1.0
 ```
-
+``` sh
+docker run -d --name cnt_prod_kcafib -e PROFILE=serv-test --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_test:1.0
+```
+**URL :** [kcafib](http://http://62.141.41.189:10581/swagger-ui.html).
 
 
