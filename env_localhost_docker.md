@@ -45,7 +45,7 @@ select * from clients;
 ```
 ### 2. Phpmyadmin 
 ``` sh
-docker run -d --name cnt_localhost_phpmyadmin --network network_kcafi_localhost --link cnt_prod_mysql8:db -p 17001:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin
+docker run -d --name cnt_localhost_phpmyadmin --network network_kcafi_localhost --link cnt_localhost_mysql8:db -p 17001:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin
 ``` 
 
 **URL :** [Phpmyadmin](http://localhost:17001).
