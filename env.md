@@ -44,6 +44,11 @@ git pull https://github.com/idev-entreprise/idev_caf_backend.git
 ```
 
 ``` sh
+cd C:\Users\Lenovo\Documents\GitHub1\kcafi_backend
+mvn clean install
+docker container stop cnt_localhost_kcafib
+docker container rm cnt_localhost_kcafib
+docker image  rm -f  kcafib_dev:1.0 
 docker build --build-arg PROFILE=dev-docker -t kcafib_dev:1.0 . 
 docker run -d --name cnt_localhost_kcafib -e PROFILE=dev-docker  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0 
 ```
