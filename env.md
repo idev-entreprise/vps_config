@@ -80,7 +80,7 @@ git checkout -b main
 git pull https://github.com/idev-entreprise/idev_caf_frontend.git
 ```
 ``` sh
-docker build -f --build-arg PROFILE=dev-docker -t kcafif_dev:1.0 . 
+docker build  --build-arg PROFILE=dev-docker -t kcafif_dev:1.0 . 
 docker run -d --name cnt_localhost_kcafif -e PROFILE=dev-docker  --network network_kcafi_localhost  -p 80:80 kcafif_dev:1.0 
 ```
 ---
