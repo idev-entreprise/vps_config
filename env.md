@@ -166,7 +166,7 @@ docker push 98687465/kcafif_prod:1.0
 ```
 
 ``` sh
-docker run -d --name cnt_prod_kcafif -e PROFILE=serv-prod --network network_kcafi_prod  -p 80:80 kcafif_prod:1.0 
+docker run -d --name cnt_prod_kcafif -e PROFILE=serv-prod --network network_kcafi_prod  -p 80:80 98687465/kcafif_prod:1.0 
 ```
 
 ---
