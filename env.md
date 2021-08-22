@@ -49,6 +49,13 @@ docker run -d --name cnt_test_kcafib -e PROFILE=serv-test --network network_kcaf
 ```
 #### - [kcafib prod](http://62.141.41.189:10581/swagger-ui.html)
 
+``` bash
+mkdir C:\Users\Lenovo\Documents\GitHub\kcafi_backend
+git init
+git remote add origin https://github.com/idev-entreprise/idev_caf_backend.git
+git pull -branch main https://github.com/idev-entreprise/idev_caf_backend.git
+```
+
 ``` sh
 docker build --build-arg PROFILE=serv-prod -t kcafib_prod:1.0 . 
 docker tag kcafib_prod:1.0 98687465/kcafib_prod:1.0
