@@ -8,7 +8,7 @@
 |mysql:8|cnt_localhost_mysql8|C-CPM	| 13301	|3306|  |
 |phpmyadmin:latest|cnt_localhost_phpmyadmin|C-CPP	| 17001	|80| [Phpmyadmin](http://localhost:17001) |
 |kcafib|cnt_localhost_kcafib|C-CPKB	|	10581	|8080 | [kcafib](http://localhost:10581/swagger-ui.html) |
-|kcafif|cnt_localhost_kcafif|C-CPKF	| 80	|80| [kcafif](http://localhost) |
+|kcafif|cnt_localhost_kcafif|C-CPKF	| 80	|4200| [kcafif](http://localhost) |
 
 ### 1. Docker network 
 ``` sh
@@ -34,6 +34,15 @@ docker run -d --name cnt_localhost_phpmyadmin --network network_kcafi_localhost 
 
 #### - [kcafib dev](http://localhost:10581/swagger-ui.html)
 
+``` bash
+mkdir C:\Users\Lenovo\Documents\GitHub1\kcafi_backend
+cd C:\Users\Lenovo\Documents\GitHub1\kcafi_backend
+git init
+git remote add origin https://github.com/idev-entreprise/idev_caf_backend.git
+git checkout -b main
+git pull https://github.com/idev-entreprise/idev_caf_backend.git
+```
+
 ``` sh
 docker build --build-arg PROFILE=dev-docker -t kcafib_dev:1.0 . 
 docker run -d --name cnt_localhost_kcafib -e PROFILE=dev-docker  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0 
@@ -49,15 +58,6 @@ docker run -d --name cnt_test_kcafib -e PROFILE=serv-test --network network_kcaf
 ```
 #### - [kcafib prod](http://62.141.41.189:10581/swagger-ui.html)
 
-``` bash
-mkdir C:\Users\Lenovo\Documents\GitHub1\kcafi_backend
-cd C:\Users\Lenovo\Documents\GitHub1\kcafi_backend
-git init
-git remote add origin https://github.com/idev-entreprise/idev_caf_backend.git
-git checkout main
-git pull https://github.com/idev-entreprise/idev_caf_backend.git
-```
-
 ``` sh
 docker build --build-arg PROFILE=serv-prod -t kcafib_prod:1.0 . 
 docker tag kcafib_prod:1.0 98687465/kcafib_prod:1.0
@@ -65,6 +65,23 @@ docker push 98687465/kcafib_prod:1.0
 ```
 ``` sh
 docker run -d --name cnt_prod_kcafib -e PROFILE=serv-test --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_test:1.0
+```
+
+### 6. kcafif
+
+#### - [kcafif dev](http://localhost:4200)
+
+``` bash
+mkdir C:\Users\Lenovo\Documents\GitHub1\kcafi_frontend
+cd C:\Users\Lenovo\Documents\GitHub1\kcafi_frontend
+git init
+git remote add origin https://github.com/idev-entreprise/idev_caf_frontend.git
+git checkout -b main
+git pull https://github.com/idev-entreprise/idev_caf_frontend.git
+```
+``` sh
+docker build --build-arg PROFILE=dev-docker -t kcafif_dev:1.0 . 
+docker run -d --name cnt_localhost_kcafif -e PROFILE=dev-docker  --network network_kcafi_localhost  -p 80:4200 kcafif_dev:1.0 
 ```
 ---
 # `ENV serv`
