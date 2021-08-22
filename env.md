@@ -81,7 +81,7 @@ git pull https://github.com/idev-entreprise/idev_caf_frontend.git
 ```
 ``` sh
 cd C:\Users\Lenovo\Documents\GitHub1\kcafi_frontend
-ng build --dev
+ng build  --configuration=dev
 docker container stop cnt_localhost_kcafif
 docker container rm cnt_localhost_kcafif
 docker image  rm -f  kcafif_dev:1.0 
