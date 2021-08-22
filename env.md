@@ -69,7 +69,7 @@ docker run -d --name cnt_prod_kcafib -e PROFILE=serv-test --network network_kcaf
 
 ### 6. kcafif
 
-#### - [kcafif dev](http://localhost:4200)
+#### - [kcafif dev](http://localhost)
 
 ``` bash
 mkdir C:\Users\Lenovo\Documents\GitHub1\kcafi_frontend
@@ -80,6 +80,8 @@ git checkout -b main
 git pull https://github.com/idev-entreprise/idev_caf_frontend.git
 ```
 ``` sh
+cd C:\Users\Lenovo\Documents\GitHub1\kcafi_frontend
+ng build --dev
 docker container stop cnt_localhost_kcafif
 docker container rm cnt_localhost_kcafif
 docker image  rm -f  kcafif_dev:1.0 
