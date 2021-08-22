@@ -152,7 +152,22 @@ docker push 98687465/kcafib_prod:1.0
 ``` sh
 docker run -d --name cnt_prod_kcafib -e PROFILE=serv-prod --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_prod:1.0
 ```
+### 5. [kcafif prod](http://62.141.41.189/)
 
+``` sh
+cd C:\Users\Lenovo\Documents\GitHub1\kcafi_frontend
+ng build  --configuration=prod
+docker container stop cnt_prod_kcafif
+docker container rm cnt_prod_kcafif
+docker image  rm -f  kcafif_dev:1.0  
+docker build --build-arg PROFILE=serv-prod -t kcafif_prod:1.0 . 
+docker tag kcafif_prod:1.0 98687465/kcafif_prod:1.0
+docker push 98687465/kcafif_prod:1.0
+```
+
+``` sh
+docker run -d --name cnt_prod_kcafif -e PROFILE=serv-prod --network network_kcafi_prod  -p 80:80 kcafif_prod:1.0 
+```
 
 ---
 # `ENV serv-test`
