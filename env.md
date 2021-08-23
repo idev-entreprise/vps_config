@@ -165,7 +165,7 @@ docker run -d --name cnt_prod_kcafib -e PROFILE=serv-prod --network network_kcaf
 ### 5. [kcafif prod](http://62.141.41.189/)
 
 ``` sh
-cd C:\Users\Lenovo\Documents\GitHub1\kcafi_frontend
+cd C:\Users\Lenovo\Documents\GitHub\kcafi_frontend
 ng build  --configuration prod
 docker container stop cnt_prod_kcafif
 docker container rm cnt_prod_kcafif
