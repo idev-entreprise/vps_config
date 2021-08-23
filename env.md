@@ -1,10 +1,8 @@
 # Contents
    - [ENV dev-docker](#ENV-dev-docker) 
-      - [Docker network](#Docker-network ) 
    - [ENV serv](#ENV-serv) 
    - [ENV serv-prod](#ENV-serv-prod) 
    - [ENV serv-test](#ENV-serv-test) 
-      - [Docker network](#Docker-network ) 
 
 ---
 # ENV dev-docker
@@ -199,15 +197,45 @@ docker run -d --name cnt_test_phpmyadmin --network network_kcafi_test --link cnt
 ``` 
 
 ### 4. [kcafib test](http://62.141.41.189:10582/swagger-ui.html)
+**Localhost**
 ``` sh
+cd C:\Users\Lenovo\Documents\GitHub\kcafi_backend
+mvn -DskipTests=true install
+docker container stop cnt_test_kcafib
+docker container rm cnt_test_kcafib
+docker rmi 98687465/kcafif_prod:1.0
+docker rmi kcafib_test:1.0
 docker build --build-arg PROFILE=serv-test -t kcafib_test:1.0 . 
 docker tag kcafib_test:1.0 98687465/kcafib_test:1.0
 docker push 98687465/kcafib_test:1.0
 ```
+**Serveur**
 ``` sh
-docker run -d --name cnt_test_kcafib -e PROFILE=serv-test --network network_kcafi_test  -p 10582:9090 98687465/kcafib_test:1.0
+docker container stop cnt_test_kcafib
+docker container rm cnt_test_kcafib
+docker rmi 98687465/kcafib_test:1.0
+docker run -d --name cnt_test_kcafib -e PROFILE=serv-test --network network_kcafi_test  -p 10581:9090 98687465/kcafib_test:1.0
 ```
-
+### 5. [kcafif test](http://62.141.41.189:4200)
+**Localhost**
+``` sh
+cd C:\Users\Lenovo\Documents\GitHub\kcafi_frontend
+ng build  --configuration test
+docker container stop cnt_test_kcafif
+docker container rm cnt_test_kcafif
+docker rmi 98687465/kcafif_test:1.0
+docker rmi kcafif_test:1.0
+docker build --build-arg PROFILE=serv-test -t kcafif_test:1.0 . 
+docker tag kcafif_test:1.0 98687465/kcafif_test:1.0
+docker push 98687465/kcafif_test:1.0
+```
+**Serveur**
+``` sh
+docker container stop cnt_test_kcafif
+docker container rm cnt_test_kcafif
+docker rmi 98687465/kcafif_test:1.0
+docker run -d --name cnt_test_kcafif -e PROFILE=serv-test --network network_kcafi_test  -p 80:80 98687465/kcafif_test:1.0 
+```
 
 
 
