@@ -4,9 +4,7 @@
    - [ENV serv-prod](#ENV-serv-prod) 
    - [ENV serv-test](#ENV-serv-test) 
 
----
 # ENV dev-docker
----
 |IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER | URL |
 |---- | ----- | ----- | ---- | ---- | ---- |
 |portainer/portainer-ce:latest|	cnt_portainer	|C-PORT	|9000	|9000| [Portainer](http://localhost:9000/#!/auth) |
@@ -77,9 +75,8 @@ docker run -d --name cnt_localhost_kcafif -e PROFILE=dev-docker  --network netwo
 
 
 
----
+
 # ENV serv
----
 |IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER | URL |
 |---- | ----- | ----- | ---- | ---- |---- |
 |jenkins/jenkins:jdk11	|cnt_jenkins|	C-JNKS|	8080	|8080 | [jenkins](http://62.141.41.189:8080) |
@@ -107,10 +104,7 @@ docker run -d -p 8000:8000 -p 9000:9000 --name=cnt_portainer --restart=always -v
 
 
 
----
 # ENV serv-prod
----
-
 |IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER | URL |
 |---- | ----- | ----- | ---- | ---- | ---- |
 |mysql:8|cnt_prod_mysql8|C-CPM	| 13301	|3306| |
@@ -178,9 +172,8 @@ docker run -d --name cnt_prod_kcafif -e PROFILE=serv-prod --network network_kcaf
 
 
 
----
+
 # ENV serv-test
----
 |IMAGE | CONTAINER | CODE | PORT HOST | PORT CONTAINER | URL |
 |---- | ----- | ----- | ---- | ---- | ---- |
 |mysql:8|cnt_test_mysql8|C-CPM	| 13302	|3306| |
