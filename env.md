@@ -48,28 +48,9 @@ cd C:\Users\Lenovo\Documents\GitHub\kcafi_backend
 mvn -DskipTests=true install
 docker container stop cnt_localhost_kcafib
 docker container rm cnt_localhost_kcafib
-docker image  rm -f  kcafib_dev:1.0 
+docker rmi -f  kcafib_dev:1.0 
 docker build --build-arg PROFILE=dev-docker -t kcafib_dev:1.0 . 
 docker run -d --name cnt_localhost_kcafib -e PROFILE=dev-docker  --network network_kcafi_localhost  -p 10581:9090 kcafib_dev:1.0 
-```
-#### - [kcafib test](http://62.141.41.189:10582/swagger-ui.html)
-``` sh
-docker build --build-arg PROFILE=serv-test -t kcafib_test:1.0 . 
-docker tag kcafib_test:1.0 98687465/kcafib_test:1.0
-docker push 98687465/kcafib_test:1.0
-```
-``` sh
-docker run -d --name cnt_test_kcafib -e PROFILE=serv-test --network network_kcafi_test  -p 10581:9090 98687465/kcafib_test:1.0
-```
-#### - [kcafib prod](http://62.141.41.189:10581/swagger-ui.html)
-
-``` sh
-docker build --build-arg PROFILE=serv-prod -t kcafib_prod:1.0 . 
-docker tag kcafib_prod:1.0 98687465/kcafib_prod:1.0
-docker push 98687465/kcafib_prod:1.0
-```
-``` sh
-docker run -d --name cnt_prod_kcafib -e PROFILE=serv-test --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_test:1.0
 ```
 
 ### 6. kcafif
@@ -89,7 +70,7 @@ cd C:\Users\Lenovo\Documents\GitHub1\kcafi_frontend
 ng build  --configuration=dev
 docker container stop cnt_localhost_kcafif
 docker container rm cnt_localhost_kcafif
-docker image  rm -f  kcafif_dev:1.0 
+docker  rmi -f  kcafif_dev:1.0 
 docker build --build-arg PROFILE=dev-docker -t kcafif_dev:1.0 . 
 docker run -d --name cnt_localhost_kcafif -e PROFILE=dev-docker  --network network_kcafi_localhost  -p 80:80 kcafif_dev:1.0 
 ```
@@ -150,7 +131,8 @@ cd C:\Users\Lenovo\Documents\GitHub\kcafi_backend
 mvn -DskipTests=true install
 docker container stop cnt_prod_kcafib
 docker container rm cnt_prod_kcafib
-docker images rmi kcafib_prod:1.0
+docker rmi 98687465/kcafib_prod:1.0
+docker rmi kcafib_prod:1.0
 docker build --build-arg PROFILE=serv-prod -t kcafib_prod:1.0 . 
 docker tag kcafib_prod:1.0 98687465/kcafib_prod:1.0
 docker push 98687465/kcafib_prod:1.0
@@ -159,25 +141,27 @@ docker push 98687465/kcafib_prod:1.0
 ``` sh
 docker container stop cnt_prod_kcafib
 docker container rm cnt_prod_kcafib
-docker images rmi kcafib_prod:1.0
+docker rmi 98687465/kcafib_prod:1.0
 docker run -d --name cnt_prod_kcafib -e PROFILE=serv-prod --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_prod:1.0
 ```
 ### 5. [kcafif prod](http://62.141.41.189/)
-
+**Localhost**
 ``` sh
 cd C:\Users\Lenovo\Documents\GitHub\kcafi_frontend
 ng build  --configuration prod
 docker container stop cnt_prod_kcafif
 docker container rm cnt_prod_kcafif
-docker images rmi kcafif_prod:1.0
+docker rmi 98687465/kcafif_prod:1.0
+docker rmi kcafif_prod:1.0
 docker build --build-arg PROFILE=serv-prod -t kcafif_prod:1.0 . 
 docker tag kcafif_prod:1.0 98687465/kcafif_prod:1.0
 docker push 98687465/kcafif_prod:1.0
 ```
-
+**Serveur**
 ``` sh
 docker container stop cnt_prod_kcafif
 docker container rm cnt_prod_kcafif
+docker rmi 98687465/kcafif_prod:1.0
 docker run -d --name cnt_prod_kcafif -e PROFILE=serv-prod --network network_kcafi_prod  -p 80:80 98687465/kcafif_prod:1.0 
 ```
 
