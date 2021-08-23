@@ -147,8 +147,10 @@ docker run -d --name cnt_prod_phpmyadmin --network network_kcafi_prod --link cnt
 **Localhost**
 ``` sh
 cd C:\Users\Lenovo\Documents\GitHub\kcafi_frontend
+mvn -DskipTests=true install
 docker container stop cnt_prod_kcafib
 docker container rm cnt_prod_kcafib
+docker images rmi kcafib_prod:1.0
 docker build --build-arg PROFILE=serv-prod -t kcafib_prod:1.0 . 
 docker tag kcafib_prod:1.0 98687465/kcafib_prod:1.0
 docker push 98687465/kcafib_prod:1.0
@@ -157,6 +159,7 @@ docker push 98687465/kcafib_prod:1.0
 ``` sh
 docker container stop cnt_prod_kcafib
 docker container rm cnt_prod_kcafib
+docker images rmi kcafib_prod:1.0
 docker run -d --name cnt_prod_kcafib -e PROFILE=serv-prod --network network_kcafi_prod  -p 10581:9090 98687465/kcafib_prod:1.0
 ```
 ### 5. [kcafif prod](http://62.141.41.189/)
