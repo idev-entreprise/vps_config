@@ -146,7 +146,7 @@ docker run -d --name cnt_prod_phpmyadmin --network network_kcafi_prod --link cnt
 ### 4. [kcafib prod](http://62.141.41.189:10581/swagger-ui.html)
 **Localhost**
 ``` sh
-cd C:\Users\Lenovo\Documents\GitHub\kcafi_frontend
+cd C:\Users\Lenovo\Documents\GitHub\kcafi_backend
 mvn -DskipTests=true install
 docker container stop cnt_prod_kcafib
 docker container rm cnt_prod_kcafib
@@ -169,6 +169,7 @@ cd C:\Users\Lenovo\Documents\GitHub1\kcafi_frontend
 ng build  --configuration=prod
 docker container stop cnt_prod_kcafif
 docker container rm cnt_prod_kcafif
+docker images rmi kcafif_prod:1.0
 docker build --build-arg PROFILE=serv-prod -t kcafif_prod:1.0 . 
 docker tag kcafif_prod:1.0 98687465/kcafif_prod:1.0
 docker push 98687465/kcafif_prod:1.0
