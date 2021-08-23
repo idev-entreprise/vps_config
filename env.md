@@ -180,7 +180,7 @@ docker run -d --name cnt_prod_kcafif -e PROFILE=serv-prod --network network_kcaf
 |mysql:8|cnt_test_mysql8|C-CPM	| 13302	|3306| |
 |phpmyadmin:latest|cnt_test_phpmyadmin|C-CPP	| 17002	|80|[Phpmyadmin](http://62.141.41.189:17002) |
 |kcafib|cnt_test_kcafib|C-CPKB	|	10582	|8080 | [kcafib](http://62.141.41.189:10582/swagger-ui.html) |
-|kcafif|cnt_test_kcafif|C-CPKF	| 80	|80|[kcafif](http://62.141.41.189) |
+|kcafif|cnt_test_kcafif|C-CPKF	| 4200	|80|[kcafif](http://62.141.41.189) |
 
 ### 1. Docker network 
 ``` sh
@@ -214,7 +214,7 @@ docker push 98687465/kcafib_test:1.0
 docker container stop cnt_test_kcafib
 docker container rm cnt_test_kcafib
 docker rmi 98687465/kcafib_test:1.0
-docker run -d --name cnt_test_kcafib -e PROFILE=serv-test --network network_kcafi_test  -p 10581:9090 98687465/kcafib_test:1.0
+docker run -d --name cnt_test_kcafib -e PROFILE=serv-test --network network_kcafi_test  -p 10582:9090 98687465/kcafib_test:1.0
 ```
 ### 5. [kcafif test](http://62.141.41.189:4200)
 **Localhost**
