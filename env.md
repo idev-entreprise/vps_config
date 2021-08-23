@@ -234,7 +234,7 @@ docker push 98687465/kcafif_test:1.0
 docker container stop cnt_test_kcafif
 docker container rm cnt_test_kcafif
 docker rmi 98687465/kcafif_test:1.0
-docker run -d --name cnt_test_kcafif -e PROFILE=serv-test --network network_kcafi_test  -p 80:80 98687465/kcafif_test:1.0 
+docker run -d --name cnt_test_kcafif -e PROFILE=serv-test --network network_kcafi_test  -p 4200:80 98687465/kcafif_test:1.0 
 ```
 
 
