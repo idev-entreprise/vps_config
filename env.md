@@ -35,8 +35,8 @@ docker run -d --name cnt_localhost_phpmyadmin --network network_kcafi_localhost 
 #### - [kcafib dev](http://localhost:10581/swagger-ui.html)
 
 ``` bash
-mkdir C:\Users\Lenovo\Documents\GitHub1\kcafi_backend
-cd C:\Users\Lenovo\Documents\GitHub1\kcafi_backend
+mkdir C:\Users\Lenovo\Documents\GitHub\kcafi_backend
+cd C:\Users\Lenovo\Documents\GitHub\kcafi_backend
 git init
 git remote add origin https://github.com/idev-entreprise/idev_caf_backend.git
 git checkout -b main
@@ -44,8 +44,8 @@ git pull https://github.com/idev-entreprise/idev_caf_backend.git
 ```
 
 ``` sh
-cd C:\Users\Lenovo\Documents\GitHub1\kcafi_backend
-mvn clean install
+cd C:\Users\Lenovo\Documents\GitHub\kcafi_backend
+mvn -DskipTests=true install
 docker container stop cnt_localhost_kcafib
 docker container rm cnt_localhost_kcafib
 docker image  rm -f  kcafib_dev:1.0 
