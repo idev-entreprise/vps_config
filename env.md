@@ -202,7 +202,7 @@ cd C:\Users\Lenovo\Documents\GitHub\kcafi_backend
 mvn -DskipTests=true install
 docker container stop cnt_test_kcafib
 docker container rm cnt_test_kcafib
-docker rmi 98687465/kcafif_prod:1.0
+docker rmi 98687465/kcafib_test:1.0
 docker rmi kcafib_test:1.0
 docker build --build-arg PROFILE=serv-test -t kcafib_test:1.0 . 
 docker tag kcafib_test:1.0 98687465/kcafib_test:1.0
